@@ -21,8 +21,12 @@
         <form action="cadastro-logica.php" enctype="multipart/form-data" method="POST">
              <input type="text" name="nome" value="" placeholder="Nome">
              <input type="text" name="sobrenome" value="" placeholder="Sobrenome">
-             <input type="email" name="email" value="" placeholder="Email">
-             <input type="text" name="cpf" value="" placeholder="cpf" max="11">
+             <input type="number" name="idade" value="" placeholder="idade" max="11">
+             <input type="email" name="email" value="" placeholder="E-mail">
+             <input type="text" name="cpf" value="" placeholder="CPF" max="11">
+
+                    <input type="text" name="cidade" placeholder="Cidade" required="true">
+                    <input type="text" name="estado" placeholder="Estado" required="true">                                                           
              <input type="password" name="createpassword" value="" placeholder="Crie uma Senha">
              <input type="password" name="confirmpassword" value="" placeholder="Confirme Senha">
              <div class="form__control">
@@ -33,6 +37,8 @@
              <small>Já possui uma conta? <a href="login.html">Entre aqui</a></small>
         </form>
     </div>
+
+
     </section>
 
 </body>
