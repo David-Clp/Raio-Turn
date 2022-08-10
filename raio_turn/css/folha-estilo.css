@@ -282,7 +282,7 @@ input, textarea, select{
     background-color: var(--color-white);
     border-radius: var(--card-border-radius-2);
     resize: none;
-    color: var(--color-white);
+    color: var(--color-bg);
     initial-letter: var(--color-primary-variant);
 }
 
