@@ -52,7 +52,7 @@ if(!$nome){
             $extention = end($extention);
             if(in_array($extention, $allowed_files)){
                 //Certifica que a imagem não é muito grande (5mb+)
-                if($avatar['size'] < 500000){
+                if($avatar['size'] < 5000000){
                     // Upload imagem
                     move_uploaded_file($avatar_tmp_name, $avatar_destination_path);
                 } else{
@@ -66,19 +66,25 @@ if(!$nome){
 }
 
 // Redireciona de volta a pagina de cadastro se houver um erro com os valores
-    
+if(isset($_SESSION['cadastro'])){
+    //Passar dados de formulário de volta para pagina de cadastro
+    $_SESSION['cadastro-valores'] = $_POST;
+    header('location ' . ROOT_URL . 'cadastro.php');
+    die();
+} else{
     //Insere os dados do usuario na tabela do banco de dados
     $insert_user_query = "INSERT INTO usuarios SET nome='$nome', email='$email', cpf='$cpf', cidade='$cidade',
-    estado='$estado', senha='$hashed_password', avatar='$avatar_name', admin=0";
+    estado='$estado', senha='$hashed_password', avatar='$avatar_name', is_admin=0";
 
     $insert_user_result = mysqli_query($connection, $insert_user_query);
 
-    
-
-    
-
-
-    
+    if(!mysqli_errno($connection)){
+        // Redireciona para a pagina de login
+        $_SESSION['sucesso-cadastro'] = "Cadastro bem sucesssido. Por favor entre com seus dados!";
+        header('location: ' . ROOT_URL . 'login.php');
+        die();
+    }
+}    
 
 } else{
     header('location: ' . ROOT_URL . 'cadastro.php');
