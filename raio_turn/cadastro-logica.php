@@ -69,7 +69,7 @@ if(!$nome){
 if(isset($_SESSION['cadastro'])){
     //Passar dados de formulário de volta para pagina de cadastro
     $_SESSION['cadastro-valores'] = $_POST;
-    header('location ' . ROOT_URL . 'cadastro.php');
+    header('location: ' . ROOT_URL . 'cadastro.php');
     die();
 } else{
     //Insere os dados do usuario na tabela do banco de dados
