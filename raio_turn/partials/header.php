@@ -6,8 +6,8 @@ if(isset($_SESSION['user-id'])){
     $id = filter_var($_SESSION['user-id'], FILTER_SANITIZE_NUMBER_INT);
     $query = "SELECT avatar FROM usuarios WHERE id=$id";
     $result = mysqli_query($connection, $query);
-    $avatar = mysqli_fetch_all($result);
-    echo $avatar['nome'];
+    $avatar = mysqli_fetch_assoc($result);
+
 }
 ?>
 
@@ -28,16 +28,16 @@ if(isset($_SESSION['user-id'])){
 <body>
     <nav>
         <div class="container nav__container"> 
-            <a href="#" class="nav__logo">Raio Turn</a>
+            <a href="<?= ROOT_URL ?>" class="nav__logo">Raio Turn</a>
             <ul class="nav__items">
                 <li><a href="">Realizar Deposito</a></li>
-                <li><a href="">Pontos Coleta</a></li>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Contato</a></li>
+                <li><a href="<?= ROOT_URL ?>pontos_coleta.php">Pontos Coleta</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="contato.php">Contato</a></li>
                 <?php if(isset($_SESSION['user-id'])): ?>
                 <li class="nav__profile">
-                    <div >
-                        <img class="avatar" src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>">
+                    <div class="avatar">
+                        <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>">
                     </div>
                     <ul>
                         <li><a href="">Painel</a></li>
