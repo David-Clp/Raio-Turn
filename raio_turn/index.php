@@ -40,3 +40,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, consequatur. Nulla modi repellendus, enim quidem dignissimos rerum iure ratione amet consequuntur, eligendi architecto ipsa quibusdam recusandae quam, cupiditate labore animi? Lorem ipsum dolor sit amet consectetur adipisicing elit. In, ab fugiat hic nulla nihil laudantium voluptatum sunt quis vitae dolore iure quaerat excepturi eos possimus molestiae, inventore cumque perspiciatis fuga, doloremque blanditiis autem. Impedit provident a laboriosam reprehenderit cum quo dolores, eligendi alias ea quibusdam ipsam quia tenetur dolorum minus!</p>
 </div>
 </section>
+
+<?php
+    include 'partials/footer.php';
+?>
