@@ -1,5 +1,5 @@
 
-<footer>
+<footer class="glass__principal">
     <div class="footer__socials">
         <a href="" target="_blank"><i class="uil uil-facebook-f"></i></a>
         <a href="" target="_blank"><i class="uil uil-instagram-alt"></i></i></a>

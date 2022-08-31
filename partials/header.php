@@ -12,7 +12,7 @@ if(isset($_SESSION['user-id'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,30 +26,29 @@ if(isset($_SESSION['user-id'])){
     <title>Raio Turn</title>
 </head>
 <body>
-    <nav>
+    <nav class="glass__principal">
         <div class="container nav__container"> 
             <a href="<?= ROOT_URL ?>" class="nav__logo">Raio Turn</a>
+            
             <ul class="nav__items">
-                <li><a href="<?= ROOT_URL ?>cadastrar-deposito.php">Realizar Deposito</a></li>
+                <?php if(isset($_SESSION['user-id'])): ?>    
+                <li class="nav__profile">
+                    <div class="avatar">
+                        <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>" >    
+                    </div>
+                    
+                </li>
+                <li><a href="<?= ROOT_URL ?>admin/">Painel</a></li>            
                 <li><a href="<?= ROOT_URL ?>pontos_coleta.php">Pontos Coleta</a></li>
                 <li><a href="<?= ROOT_URL ?>sobre.php">Sobre</a></li>
                 <li><a href="<?= ROOT_URL ?>contato.php">Contato</a></li>
-                <?php if(isset($_SESSION['user-id'])): ?>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>">
-                    </div>
-                    <ul>
-                        <li><a href="<?= ROOT_URL ?>admin/">Painel</a></li>
-                        <li><a href="<?= ROOT_URL ?>sair.php">Sair</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= ROOT_URL ?>sair.php">Sair</a></li>  
                 <?php else: ?>
                     <li><a href="<?= ROOT_URL ?>login.php">Entrar</a></li>
                 <?php endif ?>
             </ul>
             <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-times-square"></i></button>    
+            <button id="close__nav-btn"><i class="uil uil-times-square"></i></button>
         </div>
     </nav>
 </body>

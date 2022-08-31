@@ -8,7 +8,7 @@
    <button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>
    <aside>
       <ul>
-         <li><a href="">
+         <li><a href="" ><i class="uil uil-upload-alt"></i>
             <h5>Realizar Deposito</h5>
          </a></li>
          <li><a href="index.php" class="active"><i class="uil uil-postcard"></i>
@@ -23,10 +23,10 @@
             <h5>Gerenciar Usuários</h5>
          </a></li>
          <li><a href="add-categoria.php"><i class="uil uil-edit"></i>
-            <h5>Adicionar Categoria</h5>
+            <h5>Gerenciar Pontos de Coleta</h5>
          </a></li>
          <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
-            <h5>Gerenciar Categorias</h5>
+            <h5>Gerenciar Depositos</h5>
          </a></li>
          <?php endif ?>
       </ul>

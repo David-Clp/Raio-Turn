@@ -46,7 +46,7 @@ body{
     line-height: 1.6;
     color: var(--color-gray-200);
     overflow-x: hidden;
-    background-image: url('../imagens/fundo-ecologico.jpg');
+    background-image: url('../imagens/fundo.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -105,6 +105,13 @@ img{
     object-fit: cover;
 }
 
+.glass__principal{
+    background: rgba(0, 43, 2, 0.753);
+    box-shadow: 0 8px 32px 0 rgba(31, 135, 54, 0.37);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px); 
+}
+
 /* ================================= NAV ==============================*/
 nav{
     background: var(--color-primary);
@@ -114,11 +121,6 @@ nav{
     top: 0;
     z-index: 10;
     box-shadow: 0 0.7rem 1rem rgba(4, 65, 22, 0.562);
-    
-}
-
-nav button{
-    display: none;
 }
 
 .nav__container{
@@ -133,54 +135,107 @@ nav button{
     aspect-ratio: 1/1;
     border-radius: 50%;
     overflow: hidden;
+    margin-left: 2rem;
     border: 0.2rem solid var(--color-bg);
 }
+
 
 .nav__logo{
     font-weight: 600;
     font-size: 1.2rem;
 }
 
-.nav__items{
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
-
-.nav__profile{
-    position: relative;
+nav button{
+    display: inline-block;
+    font-size: 2rem;
+    background: transparent;
+    color: var(--color-white);
     cursor: pointer;
 }
 
-.nav__profile ul{
+nav button#close__nav-btn{
+    display: none;
+}
+
+.nav__container{
+    position: relative;
+}
+
+.nav__items{
     position: absolute;
-    top: 140%;
-    right: 0;
-    display: flex;
     flex-direction: column;
-    box-shadow: 0 3rem 3rem rgba(0,0,0,0.4);
-    visibility: hidden;
-    opacity: 0;
-    transition: var(--transition);
+    top: 100%;
+    right: 0;
+    width: 12rem;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    display: none;
 }
 
-/* mostra nav ul profile quando passar mouse em cima*/
-.nav__profile:hover > ul{
-    visibility: visible;
-    opacity: 1;
-}
-
-.nav__profile ul li a{
-    padding: 1rem;
-    background: var(--color-gray-900);
-    display: block;
+.nav__items li{
     width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: -2rem 3rem 7rem rgba(0,0,0,0.7);
+    background: var(--color-gray-900);
+    border-top: 1px solid var(--color-bg);
+    animation: animateDropdown 400ms 0s ease forwards;
+    opacity: 0;
+    transform-origin: top;
 }
 
-.nav__profile ul li:last-child a{
+.nav__items li:nth-child(6) {
     background: var(--color-red);
-    color: var(--color-bg);
 }
+.nav__items li:nth-child(6) a{
+    background: var(--color-red);
+    color: var(--color-white);
+}
+
+.nav__items li:nth-child(2){
+    animation-delay: 200ms;
+}    
+.nav__items li:nth-child(3){
+    animation-delay: 400ms;
+}
+.nav__items li:nth-child(4){
+    animation-delay: 600ms;
+}
+.nav__items li:nth-child(5){
+    animation-delay: 800ms;
+}
+.nav__items li:nth-child(6){
+    animation-delay: 1000ms;
+}
+
+
+/* Animação descer menu*/
+@keyframes animateDropdown{
+    0%{
+        transform: rotateX(90deg);
+    }
+    100%{
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.nav__items li a{
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-gray-900);
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+
+
+
 
 /* ================================= Index ==============================*/
 .conteudo__container{
@@ -188,13 +243,21 @@ nav button{
     margin-bottom: 7rem;
     top: 5rem;
     padding: 1rem 2rem;
-    text-align: justify;
+    text-align: center;
     background: rgba(0, 43, 2, 0.671);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px);
     border-radius: var(--card-border-radius-4);
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.imagem{
+    position: relative;
+    left: 30%;
+    width: 30rem;
+    overflow: hidden;
+    margin-bottom: 1.6rem;
 }
 
 /* ================================= RODAPE ==============================*/
@@ -301,7 +364,7 @@ footer{
 /* ================================= FORMULARIOS GERAL ==============================*/
 .form__section{
     position: absolute;
-    margin-top: 6rem;
+   
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -322,6 +385,7 @@ footer{
 
 .form__login{
     height: 30rem; 
+    bottom: 10rem;
 }
 
 
@@ -512,90 +576,7 @@ input, textarea, select{
     }
     
     /*==================== NAV =========================*/
-    nav button{
-        display: inline-block;
-        font-size: 1.5rem;
-        background: transparent;
-        color: var(--color-white);
-        cursor: pointer;
-    }
-
-    nav button#close__nav-btn{
-        display: none;
-    }
-
-    .nav__container{
-        position: relative;
-    }
-
-    .nav__items{
-        position: absolute;
-        flex-direction: column;
-        top: 100%;
-        right: 0;
-        width: 12rem;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 0;
-        display: none;
-    }
-
-    .nav__items li{
-        width: 100%;
-        height: 4.5rem;
-        display: flex;
-        align-items: center;
-        box-shadow: -2rem 3rem 7rem rgba(0,0,0,0.7);
-        background: var(--color-gray-900);
-        border-top: 1px solid var(--color-bg);
-        animation: animateDropdown 400ms 0s ease forwards;
-        opacity: 0;
-        transform-origin: top;
-    }
-
-    .nav__items li:nth-child(2){
-        animation-delay: 200ms;
-    }    
-    .nav__items li:nth-child(3){
-        animation-delay: 400ms;
-    }
-    .nav__items li:nth-child(4){
-        animation-delay: 600ms;
-    }
-    .nav__items li:nth-child(5){
-        animation-delay: 800ms;
-    }
-
-
-    /* Animação descer menu*/
-    @keyframes animateDropdown{
-        0%{
-            transform: rotateX(90deg);
-        }
-        100%{
-            transform: rotateX(0deg);
-            opacity: 1;
-        }
-    }
-
-    .nav__items li a{
-        border-radius: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--color-gray-900);
-        padding: 0.2rem;
-        display: flex;
-        align-items: center;
-        margin-left: 2rem;
-    }
-
-    .nav__profile{
-        background: var(--color-gray-900);
-    }
-    .nav__profile .avatar{
-        margin-left: 2rem;
-        border: 0;
-    }
+    
 
     .featured__container{
         gap: 3rem;
