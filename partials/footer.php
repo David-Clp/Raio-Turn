@@ -12,3 +12,6 @@
 </footer>
 
 <script src="<?= ROOT_URL ?>scripts/main.js"></script>
+    
+</body>
+</html>
