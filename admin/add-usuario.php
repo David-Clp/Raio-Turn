@@ -41,8 +41,7 @@
                 <label for="avatar">Importar foto para perfil</label>
                 <input type="file" name="avatar" id="avatar">
              </div>
-             <button class="btn" name="submit" type="submit">Cadastrar</button>
-             <small>Já possui uma conta? <a href="login.php">Entre aqui</a></small>
+             <button class="btn" name="submit" type="submit">Adicionar</button>
         </form>
     </div>
 </section>

@@ -63,6 +63,7 @@ body{
     width: var(--container-width-lg);
     max-width: 1800px;
     margin-inline: auto;
+
  
 }
 
@@ -147,9 +148,9 @@ nav{
 }
 
 
-.nav__logo{
-    font-weight: 600;
-    font-size: 1.2rem;
+.nav__logo img{
+    width: 7rem;
+
 }
 
 
@@ -373,7 +374,8 @@ footer{
 /* ================================= FORMULARIOS GERAL ==============================*/
 .form__section{
     position: block;
-    margin: 5% auto;
+    margin: 0px auto;
+    
     display: grid;
     place-items: center;
     width: 30rem;
@@ -609,6 +611,7 @@ input, textarea, select{
 @media screen and (max-width: 600px){
     html{
         height: 100%;
+
     }
 
     body{

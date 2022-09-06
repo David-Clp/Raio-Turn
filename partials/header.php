@@ -28,7 +28,7 @@ if(isset($_SESSION['user-id'])){
 <body>
     <nav class="glass__principal">
         <div class="container nav__container"> 
-            <a href="<?= ROOT_URL ?>" class="nav__logo">Raio Turn</a> 
+            <a href="<?= ROOT_URL ?>" class="nav__logo"><img src="<?= ROOT_URL ?>imagens/raio-turn.png" alt=""></a> 
 
             <?php if(isset($_SESSION['user-id'])): ?>
             <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
