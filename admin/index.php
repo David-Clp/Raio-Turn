@@ -28,9 +28,31 @@
          <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
             <h5>Gerenciar Depositos</h5>
          </a></li>
+         <li><a href="gerenciar-usuarios.php"><i class="uil uil-users-alt"></i>
+            <h5>Gerenciar Tipos Material</h5>
+         </a></li>
+
          <?php endif ?>
       </ul>
    </aside>
+   <main>
+      <h2>Meus Depositos</h2>
+      <table>
+         <thead>
+            <tr>
+               <th>Codigo</th>
+               <th>Tipo Material</th>
+               <th>Quantidade</th>
+               <th>Data</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+
+            </tr>
+         </tbody>
+      </table>
+   </main>
    </div>
 </section>
 

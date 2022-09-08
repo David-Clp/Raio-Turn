@@ -13,7 +13,7 @@
     unset($_SESSION['add-user-valores']);
 ?>
 
-<section class="form__section">
+<section class="form__section form__add">
     <div class="container">
         <h2>Adicionar usuário</h2>
             <?php if(isset($_SESSION['add-user'])): ?>
