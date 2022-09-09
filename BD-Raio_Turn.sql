@@ -12,3 +12,12 @@ create table usuarios(
     avatar varchar(255) not null,
     is_admin tinyint(1) not null
 );
+
+create table classe_material(
+id int(2) not null auto_increment primary key,
+designacao char(5) not null,
+imagem varchar(255) not null,
+voltagem varchar(3),
+material varchar(255)
+);
+
