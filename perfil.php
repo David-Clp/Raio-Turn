@@ -1,11 +1,11 @@
 <?php
     include 'partials/header.php';
 
-    // Buscar usuarios do banco de dados, mas não o atual usuário 
-    $atual_admin_id = $_SESSION['user-id'];
+    // Buscar usuario do banco de dados
+    $id = $_SESSION['user-id'];
 
-    $query = "SELECT * FROM usuarios WHERE NOT id=$atual_admin_id";
-    $users = mysqli_query($connection, $query);
+    $query = "SELECT * FROM usuarios WHERE id=$id";
+    $user = mysqli_query($connection, $query);
 ?>
 
 <section class="dashboard">
@@ -62,35 +62,18 @@
     <button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>
     <aside>
     <ul>
-         <li><a href="" ><i class="uil uil-upload-alt"></i>
-            <h5>Realizar Deposito</h5>
+         <li><a href="add-usuario.php"><i class="uil uil-user-plus"></i></i>
+            <h5>Editar Conta</h5>
          </a></li>
-         <li><a href="index.php" ><i class="uil uil-postcard"></i>
-            <h5>Meus Depositos</h5>
+         <li ><a href="gerenciar-usuarios.php"><i class="uil uil-users-alt"></i>
+            <h5>Excluir</h5>
          </a></li>
 
-         <?php if(isset($_SESSION['user_admin'])): ?>
-         <li><a href="add-usuario.php"><i class="uil uil-user-plus"></i></i>
-            <h5>Adicionar Usuário</h5>
-         </a></li>
-         <li><a href="gerenciar-usuarios.php"class="active"><i class="uil uil-users-alt"></i>
-            <h5>Gerenciar Usuários</h5>
-         </a></li>
-         <li><a href="add-categoria.php"><i class="uil uil-edit"></i>
-            <h5>Gerenciar Pontos de Coleta</h5>
-         </a></li>
-         <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
-            <h5>Gerenciar Depositos</h5>
-         </a></li>
-         <li><a href="gerenciar-materiais.php"><i class="uil uil-battery-bolt"></i>
-            <h5>Gerenciar Tipos Material</h5>
-         </a></li>
-         <?php endif ?>
       </ul>
     </aside>
 
     <main>
-        <h2>Gerenciar Usúarios</h2>
+        <h2>Perfil Usuário</h2>
         <?php if(mysqli_num_rows($users) > 0) : ?>
         <table>
             <thead>
@@ -120,8 +103,6 @@
                 <?php endwhile ?>
             </tbody>
         </table>
-        <?php else : ?>
-            <div class="alert__message error"><?= "Sem usuários" ?></div> 
             <?php endif ?>   
     </main>
     </div>

@@ -75,8 +75,8 @@ if(isset($_SESSION['add-user'])){
     $insert_user_result = mysqli_query($connection, $insert_user_query);
 
     if(!mysqli_errno($connection)){
-        // Redireciona para a pagina de login
-        $_SESSION['add-user-sucesso'] = "Cadastro bem sucesssido. Por favor entre com seus dados!";
+        // Redireciona para a pagina de gerenciamento de usuarios
+        $_SESSION['add-user-sucesso'] = "Usuario Cadastrado com sucesso";
         header('location: ' . ROOT_URL . 'admin/gerenciar-usuarios.php');
         die();
     }

@@ -23,6 +23,8 @@ if(isset($_SESSION['user-id'])){
        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
        <!--GOOGLE FONTS (MONTSERRAT)-->
        <link href="https://fonts.googleapis.com/css2? família=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+       <!--Logo-->
+       <link REL="SHORTCUT ICON" href="<?= ROOT_URL ?>imagens/logo.ico">
     <title>Raio Turn</title>
 </head>
 <body>
@@ -36,8 +38,9 @@ if(isset($_SESSION['user-id'])){
             <ul class="nav__items">   
                 <li class="nav__profile">
                     <div class="avatar">
-                        <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>" >    
-                    </div>    
+                        <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>" >  
+                        
+                    </div>  <a href="<?= ROOT_URL ?>perfil.php">Perfil</a>  
                 </li>
                 <li><a href="<?= ROOT_URL ?>admin/">Painel</a></li>            
                 <li><a href="<?= ROOT_URL ?>pontos_coleta.php">Pontos Coleta</a></li>

@@ -6,11 +6,32 @@
 <section>
 <div class="container conteudo__container">
     <img class="imagem" src="imagens/raio-turn.png" alt="">
-Uma solução para o descarte incorreto de pilhas e baterias <br><br>
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium eligendi optio perferendis doloremque officia rem porro repellendus, omnis, excepturi architecto vero ad neque ex quae quod, quis fugiat ab totam aliquid natus hic tempora laborum quia! Voluptates voluptatum deserunt incidunt delectus dignissimos eaque odit iste adipisci voluptas, officia dolore natus praesentium molestiae dolor omnis.
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas odit veniam odio optio quasi nostrum iure nihil, voluptatum voluptatibus ratione autem facilis sunt tempore incidunt accusamus? Laudantium corrupti fugit laboriosam. Laborum placeat accusantium magnam laudantium. Velit recusandae quibusdam ipsum excepturi optio veniam asperiores laboriosam cum?
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex placeat nobis eaque, beatae laboriosam necessitatibus cum, quia laborum consectetur ea earum, debitis suscipit ad repellat quidem voluptatem! Omnis repudiandae molestiae quam nemo consequatur laborum, reiciendis laudantium optio delectus quaerat, dolorum sed itaque, mollitia impedit voluptates. Quo amet, sequi a blanditiis quidem repudiandae natus dignissimos! Tenetur explicabo illo error quae, debitis, fugiat delectus quia dolore, expedita id placeat. Commodi error voluptas ea iusto, quia aspernatur illo unde nemo distinctio repellat, mollitia, qui eveniet vero. Consequuntur expedita, rerum libero, modi vero nam, reiciendis quidem eum enim et quae? Asperiores assumenda dolorem deleniti praesentium animi veniam cumque voluptatem. Perspiciatis distinctio obcaecati voluptatum quibusdam, ut nam aspernatur sint id quam aliquam inventore ipsum ex, aperiam mollitia. Aut, nam veniam laudantium temporibus aspernatur quae, ex a, quaerat nulla sunt omnis saepe necessitatibus sit nihil ipsa quas dolore doloremque delectus vel sapiente dolores? Iste aperiam veniam, accusamus corrupti quod rem et quis, neque distinctio obcaecati deserunt omnis necessitatibus porro suscipit blanditiis atque exercitationem asperiores. In labore eius officiis doloremque! Aut aliquam itaque quos natus incidunt cum dolores architecto libero quia fuga sapiente, velit officiis repellat expedita nam accusamus in quo accusantium? Dicta, perspiciatis enim. Amet, laboriosam.
-</p>   
+    <h3>Uma solução para o descarte incorreto de pilhas e baterias<br><br></h3>
+    
+    <p >O núcleo de todo o desenvolvimento do projeto foi o Instituto Federal de 
+        Educação, Ciência e Tecnologia de Rondônia (IFRO) Campus Cacoal, onde o 
+        docente Juliano Cristhian, responsável pela disciplina de Empreendedorismo, 
+        propôs que os discentes desenvolvessem soluções para algum tipo de problema 
+        social considerando a Agenda 2030 da Organização das Nações Unidas) e, assim, 
+        desenvolver essa solução gradativamente até obter um produto bem lapidado e, 
+        sobretudo funcional.</p>
+
+        <div class="carrosel">
+            <ul>
+                <li><img src="imagens/ifro.jpg" alt=""></li>
+                <li><img src="imagens/ifro2.jpeg" alt=""></li>
+                <li><img src="imagens/ifrologo.png" alt=""></li>
+            </ul>
+        </div>
+        
+        
+
+        <p>Diante disso, a equipe RaioTurn percebeu a falta de um olhar mais atento para
+            o descarte de materiais prejudiciais ao meio ambiente, sendo que as pilhas e 
+            baterias tinham uma alta incidência de descarte inapropriado se comparada com 
+            outros tipos de materiais. Assim, decidimos nos empenhar para fornecer uma solução
+             eficiente, incentivadora, pró-meio ambiente e abrangente para esse transtorno que 
+             vem se arrastando ano após ano.</p>
 
 </div>
 </section>

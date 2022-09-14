@@ -28,7 +28,7 @@
          <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
             <h5>Gerenciar Depositos</h5>
          </a></li>
-         <li><a href="gerenciar-usuarios.php"><i class="uil uil-users-alt"></i>
+         <li><a href="gerenciar-materiais.php"><i class="uil uil-battery-bolt"></i>
             <h5>Gerenciar Tipos Material</h5>
          </a></li>
 

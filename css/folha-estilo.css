@@ -96,8 +96,9 @@ h2{
 }
 
 h3{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin: 0.8rem 0 0.5rem;
+    text-align: center;
 }
 
 h4{
@@ -254,7 +255,7 @@ nav button#close__nav-btn{
     position: relative;
     margin-bottom: 7rem;
     top: 5rem;
-    padding: 1rem 3rem;
+    padding: 1rem 15rem;
     text-align: justify;
     background: rgba(0, 43, 2, 0.671);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -266,9 +267,46 @@ nav button#close__nav-btn{
 
 .imagem{
     margin: 0px auto;
-    width: 30rem;
+    width: 20rem;
     overflow: hidden;
     margin-bottom: 1.6rem;
+}
+
+#paragrafo-center{
+    text-align: center;
+}
+
+.carrosel{
+    width: 600px;
+    height: 250px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.carrosel ul{
+    display: flex;
+    list-style: none;
+    width: 1200px;
+    height: 250px;
+    
+}
+
+.carrosel li{
+    position: relative;
+    animation: slide 15s infinite ease-out;
+}
+
+@keyframes slide{
+    0%{left:0px}
+    20%{left:0px}
+
+    30%{left:-600px}
+    50%{left:-600px}
+    
+    60%{left:-800px}
+    90%{left:-800px}
+
+    100%{left:0px}
 }
 
 /* ================================= RODAPE ==============================*/
@@ -361,18 +399,10 @@ footer{
     border: 0.3rem solid var(--color-bg);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.container__equipe div {
+    text-align: center;
+    font-size: 1.1rem;
+}
 
 
 /* ================================= FORMULARIOS GERAL ==============================*/
@@ -401,9 +431,12 @@ footer{
 
 .form__add{
     padding: 2rem 0;
+    min-height: 35rem;
     position: relative;
     margin: 27rem 0 -17rem;
 }
+
+
 
 .alert__message{
     padding: 0.8rem 1.4rem;
@@ -568,7 +601,13 @@ input, textarea, select{
     border: 0.2rem solid var(--color-bg);
 }
 
+#dashboard-btn-add{
+    background-color: var(--color-button);
+}
 
+#dashboard-btn-add:hover{
+    background-color: var(--color-gray-900);
+}
 
 
 
