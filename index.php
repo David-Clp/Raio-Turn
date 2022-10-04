@@ -16,6 +16,8 @@
         desenvolver essa solução gradativamente até obter um produto bem lapidado e, 
         sobretudo funcional.</p>
 
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, assumenda qui!</P>
+
         <div class="carrosel">
             <ul>
                 <li><img src="imagens/ifro.jpg" alt=""></li>
