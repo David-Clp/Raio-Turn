@@ -276,7 +276,7 @@ nav button#close__nav-btn{
     text-align: center;
 }
 
-.carrosel{
+/* .carrosel{
     width: 600px;
     height: 250px;
     margin: 10px auto;
@@ -294,6 +294,25 @@ nav button#close__nav-btn{
 .carrosel li{
     position: relative;
     animation: slide 15s infinite ease-out;
+} */
+
+.carrossel{
+    box-shadow: 2px 2px 4px black;
+    overflow: hidden;
+    height: 500px;
+    width: 500px;
+}
+
+.containerc{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+}
+
+img{
+    object-fit: cover;
+    height: 500px;
+    width: 500px;
 }
 
 @keyframes slide{

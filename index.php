@@ -18,14 +18,21 @@
 
         <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, assumenda qui!</P>
 
-        <div class="carrosel">
+        <!-- <div class="carrosel">
             <ul>
                 <li><img src="imagens/ifro.jpg" alt=""></li>
                 <li><img src="imagens/ifro2.jpeg" alt=""></li>
                 <li><img src="imagens/ifrologo.png" alt=""></li>
             </ul>
-        </div>
+        </div> -->
         
+        <div class="carrossel">
+            <div class="containerc" id="img">
+                <img src="imagens/ifro.jpg" alt="">
+                <img src="imagens/ifro2.jpg" alt="">
+                <img src="imagens/ifrologo.png" alt="">
+            </div>
+        </div>
         
 
         <p>Diante disso, a equipe RaioTurn percebeu a falta de um olhar mais atento para
