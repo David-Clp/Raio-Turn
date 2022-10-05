@@ -5,7 +5,8 @@
     $id = $_SESSION['user-id'];
 
     $query = "SELECT * FROM usuarios WHERE id=$id";
-    $user = mysqli_query($connection, $query);
+    $resultado = mysqli_query($connection, $query);
+    $user = mysqli_fetch_assoc($resultado);
 ?>
 
 <section class="dashboard">
@@ -62,10 +63,10 @@
     <button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>
     <aside>
     <ul>
-         <li><a href="add-usuario.php"><i class="uil uil-user-plus"></i></i>
+         <li><a href="<?= ROOT_URL ?>editar-perfil.php"><i class="uil uil-edit"></i></i>
             <h5>Editar Conta</h5>
          </a></li>
-         <li ><a href="gerenciar-usuarios.php"><i class="uil uil-users-alt"></i>
+         <li ><a href="<?= ROOT_URL ?>excluir-perfil.php" id="btn-perfil-delete"><i class="uil uil-user-times"></i>
             <h5>Excluir</h5>
          </a></li>
 
@@ -74,40 +75,31 @@
 
     <main>
         <h2>Perfil Usuário</h2>
-        <?php if(mysqli_num_rows($users) > 0) : ?>
+        <img class="avatar-perfil" src="<?= ROOT_URL . 'imagens/' .$user['avatar']?>" >
         <table>
             <thead>
                 <tr>
-                    <th></th>
                     <th>Nome</th>
                     <th>Email</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
-                    <th>Administrador</th>
+                    <th>CPF</th>
+                    <th>Localização</th>
                 </tr>
             </thead>
             <tbody>
-                <?php while($user = mysqli_fetch_assoc($users)) : ?>
+
                 <tr>
-                    <td><img class="avatar-dashboard" src="<?= ROOT_URL . 'imagens/' .$user['avatar']?>"></td>
                     <td><?= "{$user['nome']}" ?></td>
                     <td><?= "{$user['email']}" ?></td>
-                    <td><a href="<?= ROOT_URL ?>admin/edit-usuario.php?id=<?= $user['id'] ?>" class="btn sm">Editar</a></td>
-                    <td><a href="<?= ROOT_URL ?>admin/delete-usuario.php?id=<?= $user['id'] ?>" class="btn sm danger">Excluir</a></td>
-                    <?php if($user['is_admin'] == 1) : ?>
-                        <td>Sim</td>
-                    <?php else: ?>
-                        <td>Não</td>
-                        <?php endif ?>
+                    <td><?= "{$user['cpf']}" ?></td>
+                    <td><?= "{$user['cidade']}, {$user['estado']}"?></td>
                 </tr>
-                <?php endwhile ?>
+
             </tbody>
         </table>
-            <?php endif ?>   
     </main>
     </div>
 </section>
 
 <?php
-    include '../partials/footer.php';
+    include 'partials/footer.php';
 ?>

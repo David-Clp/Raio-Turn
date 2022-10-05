@@ -1,5 +1,5 @@
 <?php
-   include 'partials/header.php'; 
+    include_once('partials/header.php');
 ?>
 
 <section class="dashboard">
@@ -56,7 +56,6 @@
    </div>
 </section>
 
-
 <?php
-    include '../partials/footer.php';
+    include_once('../partials/footer.php')
 ?>

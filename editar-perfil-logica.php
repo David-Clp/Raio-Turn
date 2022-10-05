@@ -2,16 +2,14 @@
 require 'config/database.php';
 
 if(isset($_POST['submit'])){
+    $id_user = $_SESSION['user-id'];
     $nome = filter_var($_POST['nome'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $cpf = filter_var($_POST['cpf'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cidade = filter_var($_POST['cidade'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $estado = filter_var($_POST['estado'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $createpassword = filter_var($_POST['createpassword'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $confirmpassword = filter_var($_POST['confirmpassword'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $avatar = $_FILES['avatar'];
-  
-  
 
 // Validar os valores
 if(!$nome){
@@ -24,28 +22,15 @@ if(!$nome){
     $_SESSION['cadastro'] = "Por favor digite sua cidade";
 } elseif (!$estado){
     $_SESSION['cadastro'] = "Por favor digite seu estado";
-} elseif (strlen($createpassword) < 8 || strlen($confirmpassword) < 8){
+} elseif (strlen($password) < 8){
     $_SESSION['cadastro'] = 'A senha deve te mais de 8 caracteres';
 } else{
-    //Verificar se as senhas estão diferentes
-    if($createpassword !== $confirmpassword){
-        $_SESSION['cadastro'] = "Senhas não estão iguais";
-    } else {
-        $hashed_password = password_hash($createpassword, PASSWORD_DEFAULT); //Criptografar senha
-
-        //verifica se o CPF ou email ja existe no banco de dados
-        $user_check_query = "SELECT * FROM usuarios WHERE cpf = '$cpf' OR email = '$email'";
-        $user_check_result = mysqli_query($connection, $user_check_query);
-        if(mysqli_num_rows($user_check_result) > 0){
-            $_SESSION['cadastro'] = "CPF ou Email já cadastrados";
-        } else{
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT); //Criptografar senha
             //Logica do avatar
             if(!$avatar['name']){
                 $avatar = 'imagens/icon-perfil.png';
                 $avatar_name = 'icon-perfil.png';
             } else{
-
-            
             //Renomear foto
             $time = time(); // Renomea nome da imagem usando tempo, para cada foto ter nome unico
             $avatar_name = $time . $avatar['name'];
@@ -68,32 +53,30 @@ if(!$nome){
                 $_SESSION['cadastro'] = "Formato de arquivo incorreto, são aceitos os formatos png, jpg ou jpeg";
             }
         }
-    }
-    }
 }
 
 // Redireciona de volta a pagina de cadastro se houver um erro com os valores
 if(isset($_SESSION['cadastro'])){
     //Passar dados de formulário de volta para pagina de cadastro
     $_SESSION['cadastro-valores'] = $_POST;
-    header('location: ' . ROOT_URL . 'cadastro.php');
+    header('location: ' . ROOT_URL . 'editar-perfil.php');
     die();
 } else{
     //Insere os dados do usuario na tabela do banco de dados
-    $insert_user_query = "INSERT INTO usuarios SET nome='$nome', email='$email', cpf='$cpf', cidade='$cidade',
-    estado='$estado', senha='$hashed_password', avatar='$avatar_name', is_admin=0";
+    $edit_user_query = "UPDATE usuarios SET nome='$nome', email='$email', cpf='$cpf', cidade='$cidade',
+    estado='$estado', senha='$hashed_password', avatar='$avatar_name' WHERE id=$id_user LIMIT 1";
 
-    $insert_user_result = mysqli_query($connection, $insert_user_query);
+    $edit_user_result = mysqli_query($connection, $edit_user_query);
 
     if(!mysqli_errno($connection)){
         // Redireciona para a pagina de login
-        $_SESSION['sucesso-cadastro'] = "Cadastro bem sucesssido. Por favor entre com seus dados!";
-        header('location: ' . ROOT_URL . 'login.php');
+        $_SESSION['sucesso-cadastro'] = "Alteração bem sucesssida!";
+        header('location: ' . ROOT_URL . 'perfil.php');
         die();
     }
 }    
 
 } else{
-    header('location: ' . ROOT_URL . 'cadastro.php');
+    header('location: ' . ROOT_URL . 'editar-perfil.php');
     die();
 }

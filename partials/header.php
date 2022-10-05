@@ -39,8 +39,8 @@ if(isset($_SESSION['user-id'])){
                 <li class="nav__profile">
                     <div class="avatar">
                         <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>" >  
-                        
-                    </div>  <a href="<?= ROOT_URL ?>perfil.php">Perfil</a>  
+                        </div>  <a href="<?= ROOT_URL ?>perfil.php">Perfil</a>  
+                
                 </li>
                 <li><a href="<?= ROOT_URL ?>admin/">Painel</a></li>            
                 <li><a href="<?= ROOT_URL ?>pontos_coleta.php">Pontos Coleta</a></li>

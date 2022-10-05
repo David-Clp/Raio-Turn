@@ -1,3 +1,8 @@
+<?php
+
+
+
+?>
 
 <footer class="glass__principal">
     <div class="footer__socials">

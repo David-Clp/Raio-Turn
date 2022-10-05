@@ -43,8 +43,6 @@
     box-sizing: border-box;
 }
 
-
-
 body{
 
     padding: 0;
@@ -61,6 +59,19 @@ body{
     background-size: cover;
     font-size:1rem;
 }
+
+body::-webkit-scrollbar{
+    width: 15px;
+    background: #fff;
+
+}
+body::-webkit-scrollbar-thumb{
+    background: var(--color-primary);
+}
+/* body::-webkit-scrollbar-track{
+    border: 3px solid #fff;
+} */
+
 
 .container{
     width: var(--container-width-lg);
@@ -110,11 +121,11 @@ a{
     transition: var(--transition);
 }
 
-img{
+ img{
     display: block;
     width: 100%;
     object-fit: cover;
-}
+} 
 
 .glass__principal{
     background: rgba(0, 43, 2, 0.753);
@@ -143,7 +154,7 @@ nav{
 }
 
 .avatar{
-    width: 2.5rem;
+    width: 5rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
     overflow: hidden;
@@ -276,57 +287,27 @@ nav button#close__nav-btn{
     text-align: center;
 }
 
-/* .carrosel{
-    width: 600px;
-    height: 250px;
-    margin: 10px auto;
+.carrosel{
+    position: block;
+    margin: 0px auto;
+    box-shadow:  2px 2px 4px black;
+    width: 740px;
+    height: 600px;
     overflow: hidden;
 }
 
-.carrosel ul{
-    display: flex;
-    list-style: none;
-    width: 1200px;
-    height: 250px;
-    
-}
-
-.carrosel li{
-    position: relative;
-    animation: slide 15s infinite ease-out;
-} */
-
-.carrossel{
-    box-shadow: 2px 2px 4px black;
-    overflow: hidden;
-    height: 500px;
-    width: 500px;
-}
-
-.containerc{
+.container-carrosel{
     display: flex;
     transition: transform 0.5s ease-in-out;
-    transform: translateX(0);
+    transform: translateX(0);    
 }
 
-img{
+#img-carrosel{
     object-fit: cover;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 740px
 }
 
-@keyframes slide{
-    0%{left:0px}
-    20%{left:0px}
-
-    30%{left:-600px}
-    50%{left:-600px}
-    
-    60%{left:-800px}
-    90%{left:-800px}
-
-    100%{left:0px}
-}
 
 /* ================================= RODAPE ==============================*/
 footer{
@@ -410,6 +391,7 @@ footer{
 
 .container__equipe li{
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     width: 12rem;
     aspect-ratio: 1/1;
@@ -545,7 +527,7 @@ input, textarea, select{
 }
 
 .dashboard__container{
-    min-height: 35rem;
+    min-height: 38rem;
     width: 75rem;
     display: grid;
     grid-template-columns: 14rem auto;
@@ -628,6 +610,20 @@ input, textarea, select{
     background-color: var(--color-gray-900);
 }
 
+/* ================================= PERFIL ==============================*/
+.avatar-perfil{
+    width: 15rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.2rem solid var(--color-bg);
+    margin: 0px auto;
+    margin-bottom: 1rem;
+}
+
+#btn-perfil-delete{
+    background: var(--color-red);
+}
 
 
 

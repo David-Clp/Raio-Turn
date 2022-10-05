@@ -76,7 +76,7 @@
          <li><a href="gerenciar-usuarios.php"class="active"><i class="uil uil-users-alt"></i>
             <h5>Gerenciar Usuários</h5>
          </a></li>
-         <li><a href="add-categoria.php"><i class="uil uil-edit"></i>
+         <li><a href=""><i class="uil uil-edit"></i>
             <h5>Gerenciar Pontos de Coleta</h5>
          </a></li>
          <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
