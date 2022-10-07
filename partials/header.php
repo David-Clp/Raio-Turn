@@ -18,7 +18,7 @@ if(isset($_SESSION['user-id'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <!-- Folha Estilo css-->
-       <link rel="stylesheet" href="<?= ROOT_URL ?>css/folha-estilo.css">
+       <link rel="stylesheet" href="<?= ROOT_URL ?>partials/folha-estilo.css">
        <!-- ICONSCOUT CDN-->
        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
        <!--GOOGLE FONTS (MONTSERRAT)-->

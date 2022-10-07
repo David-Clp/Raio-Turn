@@ -1,0 +1,800 @@
+:root{
+    --color-primary: #024d06;
+    --color-button: #008a1e;
+    --color-primary-light: hsl(242, 91%, 69%, 18%);   
+    --color-primary-variant: #5854c7;
+    --color-red: #da0f3f; 
+    --color-red-light: hsl(346, 87%, 46%, 15%);
+    --color-green: #00c476;
+    --color-green-light: hsl(156, 100%, 38%, 15%);
+    --color-gray-900: #05461e; 
+    --color-gray-700: #206b2c;
+    --color-gray-300: rgba(242, 242, 254, 0.3);
+    --color-gray-200: rgba(242, 242, 254, 0.932);
+    --color-white: #f2f2fe;
+    --color-bg: #000000;
+
+    --transition: all 300ms ease;
+
+    --container-width-lg: 74%;
+    --container-width-md: 88%;
+    --form-width: 30%;
+
+    --card-border-radius-1: 0.3rem;
+    --card-border-radius-2: 0.5rem;
+    --card-border-radius-3: 0.8rem;
+    --card-border-radius-4: 2rem;
+    --card-border-radius-5: 5rem;
+}
+
+
+/* ================================= GERAL ==============================*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    appearance: 0;
+    
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body{
+
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--color-gray-200);
+    overflow-x: hidden;
+    background-image: url('../imagens/fundo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size:1rem;
+}
+
+body::-webkit-scrollbar{
+    width: 15px;
+    background: #fff;
+
+}
+body::-webkit-scrollbar-thumb{
+    background: var(--color-primary);
+}
+/* body::-webkit-scrollbar-track{
+    border: 3px solid #fff;
+} */
+
+
+.container{
+    width: var(--container-width-lg);
+    max-width: 1800px;
+    margin-inline: auto;
+
+ 
+}
+
+section{
+    margin-top: 3rem;
+    width: 100vw;
+}
+
+.section__extra-margin{
+    margin: 7rem;
+}
+
+h1,h2,h3,h4,h5{
+    color: var(--color-white);
+    line-height: 1.3;
+}
+
+h1{
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+h2{
+    font-size: 1.7rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+h3{
+    font-size: 1.3rem;
+    margin: 0.8rem 0 0.5rem;
+    text-align: center;
+}
+
+h4{
+    font-size: 1rem;
+}
+
+a{
+    color: var(--color-white);
+    transition: var(--transition);
+}
+
+ img{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+} 
+
+.glass__principal{
+    background: rgba(0, 43, 2, 0.753);
+    box-shadow: 0 8px 32px 0 rgba(31, 135, 54, 0.37);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px); 
+}
+
+/* ================================= NAV ==============================*/
+nav{
+    background: var(--color-primary);
+    width: 100vw;
+    height: 4.5rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 0.7rem 1rem rgba(4, 65, 22, 0.562);
+}
+
+.nav__container{
+    padding: 0 2rem 0 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar{
+    width: 5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 2rem;
+    border: 0.2rem solid var(--color-bg);
+}
+
+
+.nav__logo img{
+    width: 7rem;
+
+}
+
+
+nav button{
+    display: inline-block;
+    font-size: 2rem;
+    background: transparent;
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+nav button#close__nav-btn{
+    display: none;
+}
+
+.nav__container{
+    position: relative;
+}
+
+.nav__items{
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    right: 0;
+    width: 12rem;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    display: none;
+}
+
+.nav__items li{
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: -2rem 3rem 7rem rgba(0,0,0,0.7);
+    background: var(--color-gray-900);
+    border-top: 1px solid var(--color-bg);
+    animation: animateDropdown 400ms 0s ease forwards;
+    opacity: 0;
+    transform-origin: top;
+}
+
+.nav__items li:nth-child(6) {
+    background: var(--color-red);
+}
+.nav__items li:nth-child(6) a{
+    background: var(--color-red);
+    color: var(--color-white);
+}
+
+.nav__items li:nth-child(2){
+    animation-delay: 200ms;
+}    
+.nav__items li:nth-child(3){
+    animation-delay: 400ms;
+}
+.nav__items li:nth-child(4){
+    animation-delay: 600ms;
+}
+.nav__items li:nth-child(5){
+    animation-delay: 800ms;
+}
+.nav__items li:nth-child(6){
+    animation-delay: 1000ms;
+}
+
+
+/* Animação descer menu*/
+@keyframes animateDropdown{
+    0%{
+        transform: rotateX(90deg);
+    }
+    100%{
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.nav__items li a{
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-gray-900);
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+
+
+
+
+/* ================================= Index ==============================*/
+.conteudo__container{
+    position: relative;
+    margin-bottom: 7rem;
+    top: 5rem;
+    padding: 1rem 15rem;
+    text-align: justify;
+    background: rgba(0, 43, 2, 0.671);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px);
+    border-radius: var(--card-border-radius-4);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.imagem{
+    margin: 0px auto;
+    width: 20rem;
+    overflow: hidden;
+    margin-bottom: 1.6rem;
+}
+
+#paragrafo-center{
+    text-align: center;
+}
+
+.carrosel{
+    position: block;
+    margin: 0px auto;
+    box-shadow:  2px 2px 4px black;
+    width: 740px;
+    height: 600px;
+    overflow: hidden;
+}
+
+.container-carrosel{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);    
+}
+
+#img-carrosel{
+    object-fit: cover;
+    height: 600px;
+    width: 740px
+}
+
+
+/* ================================= RODAPE ==============================*/
+footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: var(--color-gray-900);
+    padding: 2rem 0 0;
+    box-shadow: inset 0 1.5rem 1,5rem rgba(0,0,0,0.2);
+}
+
+.footer__socials{
+    margin-inline: auto;
+    width: fit-content;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.footer__socials a{
+    background: var(--color-bg);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__socials a:hover{
+    background: var(--color-white);
+    color: var(--color-bg);
+}
+
+.footer__copyright{
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--color-bg);
+    margin-top: 2rem;
+}
+
+/* ================================= BOTÃO ==============================*/
+.btn{
+    display: inline-block;
+    margin: 0px auto;
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-button);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-white);
+}
+
+.btn.sm{
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+.btn.danger{
+    background: var(--color-red);
+}
+
+.btn:hover{
+    background: var(--color-white);
+    color: var(--color-bg);
+}
+
+
+
+/* ================================= PAGINA SOBRE ==============================*/
+.container__equipe{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+
+
+}
+
+.container__equipe li{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 12rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.3rem solid var(--color-bg);
+}
+
+.container__equipe div {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+
+/* ================================= FORMULARIOS GERAL ==============================*/
+.form__section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: grid;
+    place-items: center;
+    width: 30rem;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.089);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 15px );
+    -webkit-backdrop-filter: blur( 15px);
+    border-radius: var(--card-border-radius-4);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
+}
+
+.form__login{
+    height: 30rem; 
+    bottom: 10rem;
+}
+
+.form__add{
+    padding: 2rem 0;
+    min-height: 35rem;
+    position: relative;
+    margin: 27rem 0 -17rem;
+}
+
+
+
+.alert__message{
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius-2);
+}
+
+.alert__message.error{
+    background: var(--color-red-light);
+    color: var(--color-red);
+}
+
+.alert__message.sucess{
+    background: var(--color-green-light);
+    color: var(--color-green);
+}
+
+.alert__message.lg{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__control{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.form__control.inline{
+    flex-direction: row;
+    align-items: center;
+}
+
+input, textarea, select{
+    padding: 0.8rem 1.4rem;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius-2);
+    resize: none;
+    color: var(--color-bg);
+    initial-letter: var(--color-primary-variant);
+}
+
+.form__section small{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-white);
+}
+
+.form__section label{
+    font-size: 0.9rem;
+    color: var(--color-white);
+}
+
+.form__section small a{
+    color: var(--color-bg);
+}
+
+
+/* ================================= PAGINA: PONTOS DE COLETA ==============================*/
+
+#mapa{
+    position: relative;
+    width: 80%;
+
+    height: 40rem;
+    text-align: center;
+    border-radius: var(--card-border-radius-4);
+    border: 5px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+/* ================================= PAINEL ==============================*/
+.dashboard{
+    margin-top: 6rem;
+    
+}
+
+.sidebar__toggle{
+    display: none;
+}
+
+.dashboard__container{
+    min-height: 38rem;
+    width: 75rem;
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    padding: 2rem;
+    margin-bottom: 5rem;
+    background: rgba(0, 43, 2, 0.671);
+    box-shadow: 0 8px 32px 0 rgba(31, 135, 54, 0.37);
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px);
+    border-radius: var(--card-border-radius-4);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.dashboard aside a{
+    background-color: var(--color-primary);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+}
+
+.dashboard aside ul li:not(:last-child) a{
+    border-bottom: 1px solid var(--color-gray-900);
+}
+
+.dashboard aside a:hover{
+    background-color: var(--color-gray-700);
+}
+
+.dashboard aside a.active{
+    background-color: var(--color-gray-900);
+}
+
+.dashboard main{
+    margin-left: 1.5rem;
+}
+
+.dashboard main h2{
+    margin: 0 0 2rem 0;
+    line-height: 1;
+}
+
+.dashboard main table{
+    width: 100%;
+    text-align: left;
+}
+
+.dashboard main table th{
+    background: var(--color-gray-700);
+    padding: 0.8rem;
+    color: var(--color-white);
+}
+
+.dashboard main table td{
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--color-gray-200);
+} 
+
+.dashboard main table tr:hover td{
+    background-color: var(--color-bg);
+    color: var(--color-white);
+    cursor: default;
+    transition: var(--transition);
+}
+
+.avatar-dashboard{
+    width: 3.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.2rem solid var(--color-bg);
+}
+
+#dashboard-btn-add{
+    background-color: var(--color-button);
+}
+
+#dashboard-btn-add:hover{
+    background-color: var(--color-gray-900);
+}
+
+/* ================================= PERFIL ==============================*/
+.avatar-perfil{
+    width: 15rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.2rem solid var(--color-bg);
+    margin: 0px auto;
+    margin-bottom: 1rem;
+}
+
+#btn-perfil-delete{
+    background: var(--color-red);
+}
+
+
+
+
+
+/* ================================= CONSULTA TELAS (DISPOSITIVOS MEDIUS) ==============================*/
+@media screen and (max-width:1024px) {
+    /*=================== GERAL ========================*/
+    body{
+        background-image: url('../imagens/fundo-telas-media.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .container{
+        width: var(--container-width-md);
+    }
+
+    h2{
+        font-size: 1.6rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    h5{
+        font-size: 0.8rem;
+    }
+    
+    /*==================== FORMULARIO =========================*/
+    .form__section-container{
+        padding: 3rem;
+    }
+
+    .featured__container{
+        gap: 3rem;
+    }
+
+    .posts__container{
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+     /*==================== PAINEL =========================*/
+     .dashboard__container{
+        grid-template-columns: 4.3rem auto;
+        padding: 1rem;
+        background: transparent;
+        height: 100%;
+        width: 70%;
+    
+    }
+
+    .dashboard aside h5{
+        display: none;
+    }
+
+    .dashboard main table thead{
+        display: none;
+    }
+
+    .dashboard main table tr{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard main table tr:nth-child(even){
+        background: var(--color-gray-900);
+    }
+
+    .dashboard main table tr:hover td{
+        background: transparent;
+    }
+
+}
+
+
+/* ================================= CONSULTAR TELAS (DISPOSITIVOS PEQUENOS) ==============================*/
+@media screen and (max-width: 600px){
+    html{
+        height: 100%;
+
+    }
+
+    body{
+        background: var(--color-gray-700);
+    }
+
+    section{
+        margin-top: 2rem;
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+
+    .imagem{
+        position: relative;
+        width: 10rem;
+        overflow: hidden;
+        margin-bottom: 1.6rem;
+    }
+
+    footer{
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        background: var(--color-gray-900);
+        padding: 2rem 0 0;
+        box-shadow: inset 0 1.5rem 1,5rem rgba(0,0,0,0.2);
+    }
+
+    /*==================== FORMULARIOS =========================*/
+    .form__section-container{
+        padding: 0;
+    }
+
+    /*==================== PAINEL =========================*/
+    .dashboard{
+        margin-top: 5rem;
+        
+    }
+
+    .dashboard__container{
+        height: 100%;
+        grid-template-columns: 1fr;
+        gap: 0;
+        height: 100%;
+        width: 90%;
+    }
+
+    .dashboard main{
+        margin: 0;
+    }
+
+    .dashboard main h2{
+        margin-top: 1rem;
+    }
+
+    .dashboard aside{
+        position: absolute;
+        top: 70%;
+        box-shadow: 2rem 0 4rem rgba(0,0,0, 0.4);
+        left: -100%;
+        transition: var(--transition);
+        background: var(--color-primary);
+    }
+
+    .dashboard .sidebar__toggle{
+        display: inline-block;
+        background: var(--color-primary);
+        color: var(--color-white);
+        position: fixed;
+        right: 0;
+        bottom: 4rem;
+        z-index: 2;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50% 0 0 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        box-shadow: -1rem 0 2rem rgba(0,0,0, 0.4);
+    }
+
+    .dashboard aside a h5{
+        display: inline-block;
+    }
+
+    #hide__sidebar-btn{
+        display: none;
+    }
+}
