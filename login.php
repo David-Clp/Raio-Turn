@@ -15,35 +15,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Website responsivo</title>
-    <!-- Folha Estilo css-->
-    <link rel="stylesheet" href="css/folha-estilo.css">
-    <!-- ICONSCOUT CDN-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <!--GOOGLE FONTS (MONTSERRAT)-->
-    <link href="https://fonts.googleapis.com/css2? família=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+       <!-- Folha Estilo css-->
+       <link rel="stylesheet" href="<?= ROOT_URL ?>css/folha-estilo.css">
+       <!-- ICONSCOUT CDN-->
+       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+       <!--GOOGLE FONTS (MONTSERRAT)-->
+       <link href="https://fonts.googleapis.com/css2? família=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+       <!--Logo-->
+       <link REL="SHORTCUT ICON" href="<?= ROOT_URL ?>imagens/essenciais/logo.ico">
+    <title>Raio Turn</title>
 </head>
 <body>     
     <section class="form__section form__login">    
         <div class="container">
-            <h2>Entrar</h2>
-        <?php if(isset($_SESSION['sucesso-cadastro'])): ?>
-        <div class="alert__message sucess">
-            <p>
+       
+        <h2>Login</h2>
+
+        <?php if(isset($_SESSION['sucesso-cadastro'])) : ?>
+            <div class="alert__message sucess">
+                <p>
                 <?= $_SESSION['sucesso-cadastro'];
                 unset($_SESSION['sucesso-cadastro']);
                 ?>
-            </p>
-        </div>
-        <?php elseif(isset($_SESSION['login'])): ?>
-        <div class="alert__message error">
-            <p>
-                <?= $_SESSION['login'];
-                unset($_SESSION['login']);
-                ?>
-            </p>
-        </div>
+                </p>
+            </div>
         <?php endif ?>
+       
 
         <form action="<?= ROOT_URL ?>login-logica.php" method="POST">
              <input type="text" name="cpf_email" value="<?= $cpf_email ?>" placeholder="CPF ou Email">

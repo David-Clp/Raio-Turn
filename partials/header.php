@@ -18,19 +18,19 @@ if(isset($_SESSION['user-id'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <!-- Folha Estilo css-->
-       <link rel="stylesheet" href="<?= ROOT_URL ?>partials/folha-estilo.css">
+       <link rel="stylesheet" href="<?= ROOT_URL ?>css/folha-estilo.css">
        <!-- ICONSCOUT CDN-->
        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
        <!--GOOGLE FONTS (MONTSERRAT)-->
        <link href="https://fonts.googleapis.com/css2? família=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
        <!--Logo-->
-       <link REL="SHORTCUT ICON" href="<?= ROOT_URL ?>imagens/logo.ico">
+       <link REL="SHORTCUT ICON" href="<?= ROOT_URL ?>imagens/essenciais/logo.ico">
     <title>Raio Turn</title>
 </head>
 <body>
     <nav class="glass__principal">
         <div class="container nav__container"> 
-            <a href="<?= ROOT_URL ?>" class="nav__logo"><img src="<?= ROOT_URL ?>imagens/raio-turn.png" alt=""></a> 
+            <a href="<?= ROOT_URL ?>" class="nav__logo"><img src="<?= ROOT_URL ?>imagens/essenciais/raio-turn.png" alt=""></a> 
 
             <?php if(isset($_SESSION['user-id'])): ?>
             <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
@@ -38,7 +38,7 @@ if(isset($_SESSION['user-id'])){
             <ul class="nav__items">   
                 <li class="nav__profile">
                     <div class="avatar">
-                        <img  src="<?= ROOT_URL . 'imagens/' . $avatar['avatar'] ?>" >  
+                        <img  src="<?= ROOT_URL . 'imagens/users_avatar/' . $avatar['avatar'] ?>" >  
                         </div>  <a href="<?= ROOT_URL ?>perfil.php">Perfil</a>  
                 
                 </li>

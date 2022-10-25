@@ -1,59 +1,37 @@
 <?php
     include_once('partials/header.php');
+
+   $query_material = "SELECT * FROM classe_material";
+   $materiais = mysqli_query($connection, $query_material);
+   $pilhas = [];
+
+   $data = date('Y/m/d');
 ?>
 
 <section class="dashboard">
-   <div class="container dashboard__container">
-   <button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
-   <button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>
-   <aside>
-      <ul>
-         <li><a href="deposito.php" ><i class="uil uil-upload-alt"></i>
-            <h5>Realizar Deposito</h5>
-         </a></li>
-         <li><a href="index.php" class="active"><i class="uil uil-postcard"></i>
-            <h5>Meus Depositos</h5>
-         </a></li>
+   <div class="container deposito__container">
+<section class="form__deposito">    
+      <div class="container">
+         <h2>Depósito</h2>
+        
+      <form class="form-deposito" action="<?= ROOT_URL ?>admin/deposito-logica.php" method="POST">
 
-         <?php if(isset($_SESSION['user_admin'])): ?>
-         <li><a href="add-usuario.php"><i class="uil uil-user-plus"></i></i>
-            <h5>Adicionar Usuário</h5>
-         </a></li>
-         <li><a href="gerenciar-usuarios.php"><i class="uil uil-users-alt"></i>
-            <h5>Gerenciar Usuários</h5>
-         </a></li>
-         <li><a href="add-categoria.php"><i class="uil uil-edit"></i>
-            <h5>Gerenciar Pontos de Coleta</h5>
-         </a></li>
-         <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
-            <h5>Gerenciar Depositos</h5>
-         </a></li>
-         <li><a href="gerenciar-materiais.php"><i class="uil uil-battery-bolt"></i>
-            <h5>Gerenciar Tipos Material</h5>
-         </a></li>
-
-         <?php endif ?>
-      </ul>
-   </aside>
-   <main>
-      <h2>Meus Depositos</h2>
-      <table>
-         <thead>
-            <tr>
-               <th>Codigo</th>
-               <th>Tipo Material</th>
-               <th>Quantidade</th>
-               <th>Data</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-
-            </tr>
-         </tbody>
-      </table>
-   </main>
-   </div>
+      <?php while($material = mysqli_fetch_assoc($materiais)): ?>
+      <div class="select-deposito">
+         <img src="../imagens/classe_materiais/<?= $material['imagem'] ?>">
+         <input type="text" readonly id="input_material" value="<?= "{$material['designacao']} {$material['voltagem']} {$material['material_feito']} "?>" >
+         <input name='qtd[]' id="inputqtd" type="number" value="0" min="0">
+         <input type="number" name="peso[]" hidden value="<?= $material['peso'] ?>">
+      </div>
+      <?php endwhile ?>
+      <!-- <?php $data = date('Y-m-d'); ?>
+         <input type="date" name="data-atual" value=" "> -->
+      <button class="btn" name="submit" type="submit">Depositar</button>
+      </form>
+      
+    </div>
+    </section>
+    </div>
 </section>
 
 <?php

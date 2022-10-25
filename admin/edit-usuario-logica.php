@@ -23,5 +23,6 @@ if(isset($_POST['submit'])){
 
 }
 
+/* echo "<script>window.location = 'gerenciar-usuarios.php'</script>"; */
 header('location: ' . ROOT_URL . 'admin/gerenciar-usuarios.php');
 die();

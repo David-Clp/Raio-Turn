@@ -7,8 +7,7 @@
     $cpf = $_SESSION['cadastro-valores']['cpf'] ?? null;
     $cidade = $_SESSION['cadastro-valores']['cidade'] ?? null;
     $estado = $_SESSION['cadastro-valores']['estado'] ?? null;
-    $createpassword = $_SESSION['cadastro-valores']['createpassword'] ?? null;
-    $confirmpassword = $_SESSION['cadastro-valores']['confirmpassword'] ?? null;
+    $password = $_SESSION['cadastro-valores']['password'] ?? null;
 
     // Deleta os dados da sessão de cadastro
     unset($_SESSION['cadastro-valores']);
@@ -20,13 +19,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Website responsivo</title>
-    <!-- Folha Estilo css-->
-    <link rel="stylesheet" href="css/folha-estilo.css">
-    <!-- ICONSCOUT CDN-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <!--GOOGLE FONTS (MONTSERRAT)-->
-    <link href="https://fonts.googleapis.com/css2? família=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+       <!-- Folha Estilo css-->
+       <link rel="stylesheet" href="<?= ROOT_URL ?>css/folha-estilo.css">
+       <!-- ICONSCOUT CDN-->
+       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+       <!--GOOGLE FONTS (MONTSERRAT)-->
+       <link href="https://fonts.googleapis.com/css2? família=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+       <!--Logo-->
+       <link REL="SHORTCUT ICON" href="<?= ROOT_URL ?>imagens/essenciais/logo.ico">
+    <title>Raio Turn</title>
 </head>
 <body>
     
@@ -50,8 +51,7 @@
              <input type="text" name="cpf" value="<?= $cpf ?>" placeholder="CPF" max="11">
             <input type="text" name="cidade" value="<?= $cidade ?>" placeholder="Cidade">
             <input type="text" name="estado" value="<?= $estado ?>" placeholder="Estado" >                                                           
-             <input type="password" name="createpassword" value="<?= $createpassword ?>" placeholder="Crie uma Senha">
-             <input type="password" name="confirmpassword" value="<?= $confirmpassword ?>" placeholder="Confirme Senha">
+             <input type="password" name="password" value="<?= $password ?>" placeholder="Crie uma Senha">
              <div class="form__control">
                 <label for="avatar">Importar foto para perfil</label>
                 <input type="file" name="avatar" id="avatar">

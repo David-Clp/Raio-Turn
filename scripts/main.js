@@ -20,8 +20,6 @@ openNavBtn.addEventListener('click', openNav);
 closeNavBtn.addEventListener('click', closeNav);
 
 
-
-
 const sidebar = document.querySelector('aside');
 const showSidebarBtn = document.querySelector('#show__sidebar-btn');
 const hideSidebarBtn = document.querySelector('#hide__sidebar-btn');
@@ -39,24 +37,5 @@ const hideSidebar = () =>{
     hideSidebarBtn.style.display = "none"
 }
 
-
-
-// Carrosel de Imagens
-const imgs = document.getElementById("img");
-const img = document.querySelectorAll("#img img");
-
-let idx = 0;
-
-function carrosel(){
-    idx++;
-
-    if(idx > img.length - 1){
-        idx = 0;
-    }
-   
-    imgs.style.transform = `translateX(${-idx * 740}px)`;
-}
-
-setInterval(carrosel, 2800);
 showSidebarBtn.addEventListener('click', showSidebar)
 hideSidebarBtn.addEventListener('click', hideSidebar)

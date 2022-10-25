@@ -30,4 +30,5 @@ if(isset($_GET['id'])){
 }
 
 header('location: ' . ROOT_URL . 'admin/gerenciar-materiais.php');
+    /* echo "<script>window.location = 'gerenciar-materiais.php'</script>"; */
 die();

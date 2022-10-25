@@ -35,7 +35,7 @@ if(!$nome){
             $time = time(); // Renomea nome da imagem usando tempo, para cada foto ter nome unico
             $avatar_name = $time . $avatar['name'];
             $avatar_tmp_name = $avatar['tmp_name'];
-            $avatar_destination_path = 'imagens/' . $avatar_name;
+            $avatar_destination_path = 'imagens/users/' . $avatar_name;
 
             //verificar se é mesmo uma imagem
             $allowed_files = ['png', 'jpg', 'jpeg'];

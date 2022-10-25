@@ -75,7 +75,7 @@
 
     <main>
         <h2>Perfil Usuário</h2>
-        <img class="avatar-perfil" src="<?= ROOT_URL . 'imagens/' .$user['avatar']?>" >
+        <img class="avatar-perfil" src="<?= ROOT_URL . 'imagens/users_avatar/' .$user['avatar']?>" >
         <table>
             <thead>
                 <tr>

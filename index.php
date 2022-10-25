@@ -5,8 +5,8 @@
 
 <section>
 <div class="container conteudo__container">
-    <img class="imagem" src="imagens/raio-turn.png" alt="">
-    <h3>Uma solução para o descarte incorreto de pilhas e baterias<br><br></h3>
+    <img class="imagem" src="imagens//essenciais/raio-turn.png" alt="">
+    <h3>Uma solução para o descarte de pilhas e baterias<br><br></h3>
     
     <p >O núcleo de todo o desenvolvimento do projeto foi o Instituto Federal de 
         Educação, Ciência e Tecnologia de Rondônia (IFRO) Campus Cacoal, onde o 
@@ -18,9 +18,9 @@
 
         <div class="carrosel">
             <div class="container-carrosel" id="img">
-                <img src="imagens/ifro2.jpeg" alt="">
-                <img src="imagens/ifro.jpg" alt="">
-                <img src="imagens/logoifro.jpg" alt="">
+                <img src="imagens/ifro1.jpg" alt="">
+                <img src="imagens/ifro2.jpg" alt="">
+                <img src="imagens/ifro3.jpg" alt="">
             </div>
         </div>
         
@@ -35,7 +35,8 @@
 
 </div>
 </section>
-
+    
+    <script src="scripts/carrosel.js"></script>
 <?php
     include 'partials/footer.php';
 ?>

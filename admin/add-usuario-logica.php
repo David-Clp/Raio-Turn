@@ -41,7 +41,7 @@ if(!$nome){
             $time = time(); // Renomea nome da imagem usando tempo, para cada foto ter nome unico
             $avatar_name = $time . $avatar['name'];
             $avatar_tmp_name = $avatar['tmp_name'];
-            $avatar_destination_path = '../imagens/' . $avatar_name;
+            $avatar_destination_path = '../imagens/users/' . $avatar_name;
 
             //verificar se é mesmo uma imagem
             $allowed_files = ['png', 'jpg', 'jpeg'];
@@ -65,7 +65,8 @@ if(!$nome){
 if(isset($_SESSION['add-user'])){
     //Passar dados de formulário de volta para pagina de cadastro
     $_SESSION['add-user-valores'] = $_POST;
-    header('location: ' . ROOT_URL . 'admin/add-usuario.php');
+    echo "<script>window.location = 'add-usuario.php'</script>";
+    /* header('location: ' . ROOT_URL . 'admin/'); */
     die();
 } else{
     //Insere os dados do usuario na tabela do banco de dados
@@ -77,12 +78,14 @@ if(isset($_SESSION['add-user'])){
     if(!mysqli_errno($connection)){
         // Redireciona para a pagina de gerenciamento de usuarios
         $_SESSION['add-user-sucesso'] = "Usuario Cadastrado com sucesso";
-        header('location: ' . ROOT_URL . 'admin/gerenciar-usuarios.php');
+        /* echo "<script>window.location = 'gerenciar-usuarios.php'</script>"; */
+        header('location: ' . ROOT_URL . 'admin/gerenciar-usuarios.php' );
         die();
     }
 }    
 
 } else{
+    /* echo "<script>window.location = 'add-usuario.php'</script>"; */
     header('location: ' . ROOT_URL . 'admin/add-usuario.php');
     die();
 }

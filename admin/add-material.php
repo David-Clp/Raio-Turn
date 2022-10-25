@@ -5,11 +5,8 @@ if(isset($_POST['submit'])){
     $designacao = filter_var($_POST['designacao'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $voltagem = filter_var($_POST['voltagem'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $material_feito = filter_var($_POST['material_feito'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $peso = filter_var($_POST['peso'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $avatar = $_FILES['avatar'];  
-
-    echo $designacao;
-    echo $voltagem;
-    echo $material_feito;
     
     if(!$designacao){
         $_SESSION['add-material'] = "Por favor digite a designação do material";
@@ -44,19 +41,21 @@ if(isset($_SESSION['add-material'])){
     echo "errado";
     //Passar dados de formulário de volta para pagina de cadastro
     $_SESSION['add-material-valores'] = $_POST;
+    /* echo "<script>window.location = 'add-material.php'</script>"; */
     header('location: ' . ROOT_URL . 'admin/add-material.php');
     die();
 } else{
     //Insere os dados do usuario na tabela do banco de dados
-    $insert_material_query = "INSERT INTO classe_material (designacao, imagem, voltagem, material_feito)
-        values('$designacao','$avatar_name','$voltagem','$material_feito')";
+    $insert_material_query = "INSERT INTO classe_material (designacao, imagem, voltagem, material_feito, peso)
+        values('$designacao','$avatar_name','$voltagem','$material_feito', $peso)";
 /*     SET designacao='$designacao', avatar='$avatar_name', voltagem='$voltagem', material_feito='$material_feito'";*/
     $insert_material_result = mysqli_query($connection, $insert_material_query);
 
     if(!mysqli_errno($connection)){
-        echo "CERTo";
         // Redireciona para a pagina de gerenciamento de materiais
+        
         $_SESSION['add-material-sucess'] = "Cadastro bem sucesssido";
+        /* echo "<script>window.location = 'gerenciar-materiais.php'</script>";  */   
         header('location: ' . ROOT_URL . 'admin/gerenciar-materiais.php');
         die();
     }
@@ -68,6 +67,7 @@ if(isset($_SESSION['add-material'])){
     $designacao = $_SESSION['add-material-valores']['designacao'] ?? null;
     $voltagem = $_SESSION['add-material-valores']['voltagem'] ?? null;
     $material_feito = $_SESSION['add-material-valores']['material_feito'] ?? null;
+    $peso = $_SESSION['add-material-valores']['peso'] ?? null;
 
     // Deleta os dados da sessão de cadastro
     unset($_SESSION['add-material-valores']);
@@ -90,6 +90,7 @@ if(isset($_SESSION['add-material'])){
             <input type="text" name="designacao" value="<?= $designacao ?>" placeholder="Designacao">
             <input type="text" name="voltagem" value="<?= $voltagem ?>" placeholder="Voltagem">
             <input type="text" name="material_feito" value="<?= $material_feito ?>" placeholder="Material Feito">
+            <input type="text" name="peso" value="<?= $peso ?>" placeholder="Peso">
             <div class="form__control">
                 <label for="avatar">Importar foto para visalização</label>
                 <input type="file" name="avatar" id="avatar">

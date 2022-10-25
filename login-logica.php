@@ -31,6 +31,7 @@ if(!$cpf_email){
             }
             //logar o usuario
             header('location: ' . ROOT_URL );
+            /* echo "<script>window.location = 'index.php'</script>"; */
         }else{
                 $_SESSION['login'] = "Verifique os dados digitados";
             }
@@ -43,9 +44,11 @@ if(!$cpf_email){
     if(isset($_SESSION['login'])){
         $_SESSION['login-dados'] = $_POST;
         header('location: ' . ROOT_URL . 'login.php');
+        /* echo "<script>window.location = 'login.php'</script>"; */
         die();
     }
 }else{
         header('location: ' . ROOT_URL . 'login.php');
+        /* echo "<script>window.location = 'login.php'</script>"; */
         die();
 }

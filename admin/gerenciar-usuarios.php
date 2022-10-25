@@ -3,12 +3,25 @@
 
     // Buscar usuarios do banco de dados, mas não o atual usuário 
     $atual_admin_id = $_SESSION['user-id'];
-
-    $query = "SELECT * FROM usuarios WHERE NOT id=$atual_admin_id";
-    $users = mysqli_query($connection, $query);
+ 
+    if(isset($_POST['pesquisa']) && isset($_POST['submit'])){
+        $pesquisa = filter_var($_POST['pesquisa'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        if($pesquisa == "todos" or $pesquisa == "TODOS" or $pesquisa == "t" or $pesquisa == "T"){
+            $query = "SELECT * FROM usuarios WHERE NOT id=$atual_admin_id order by nome";
+            $users = mysqli_query($connection, $query);
+        }else{
+            $query = "SELECT * FROM usuarios WHERE nome LIKE '%$pesquisa%' AND NOT id=$atual_admin_id";
+            $users = mysqli_query($connection, $query); 
+        }
+        unset($_POST['pesquisa']); 
+    } else{
+        $query = "SELECT * FROM usuarios WHERE NOT id=$atual_admin_id  order by nome";
+        $users = mysqli_query($connection, $query); 
+    }
 ?>
 
-<section class="dashboard">
+<section class="dashboard"> 
+
 
     <?php if(isset($_SESSION['add-user-sucess'])) : ?>
         <!-- adicionar usuario sucesso -->
@@ -57,12 +70,12 @@
             </div>       
             <?php endif ?>
 
-    <div class="container dashboard__container">
     <button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
     <button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>
+    <div class="container dashboard__container">
     <aside>
     <ul>
-         <li><a href="" ><i class="uil uil-upload-alt"></i>
+         <li><a href="deposito.php" ><i class="uil uil-upload-alt"></i>
             <h5>Realizar Deposito</h5>
          </a></li>
          <li><a href="index.php" ><i class="uil uil-postcard"></i>
@@ -76,10 +89,7 @@
          <li><a href="gerenciar-usuarios.php"class="active"><i class="uil uil-users-alt"></i>
             <h5>Gerenciar Usuários</h5>
          </a></li>
-         <li><a href=""><i class="uil uil-edit"></i>
-            <h5>Gerenciar Pontos de Coleta</h5>
-         </a></li>
-         <li><a href="gerenciar-categorias.php"><i class="uil uil-list-ul"></i>
+         <li><a href="gerenciar-depositos.php"><i class="uil uil-list-ul"></i>
             <h5>Gerenciar Depositos</h5>
          </a></li>
          <li><a href="gerenciar-materiais.php"><i class="uil uil-battery-bolt"></i>
@@ -91,6 +101,15 @@
 
     <main>
         <h2>Gerenciar Usúarios</h2>
+
+        <form class="container search__bar-container" action="<?= ROOT_URL ?>admin/gerenciar-usuarios.php" method="POST">
+            <div>
+                <i class="uil uil-search"></i>
+                <input type="search" name="pesquisa" placeholder="Buscar">
+                <button type="submit" name="submit" class="btn">Vai</button>
+            </div>
+        </form>
+     
         <?php if(mysqli_num_rows($users) > 0) : ?>
         <table>
             <thead>
@@ -106,7 +125,7 @@
             <tbody>
                 <?php while($user = mysqli_fetch_assoc($users)) : ?>
                 <tr>
-                    <td><img class="avatar-dashboard" src="<?= ROOT_URL . 'imagens/' .$user['avatar']?>"></td>
+                    <td><img class="avatar-dashboard" src="<?= ROOT_URL . 'imagens/users_avatar/' .$user['avatar']?>"></td>
                     <td><?= "{$user['nome']}" ?></td>
                     <td><?= "{$user['email']}" ?></td>
                     <td><a href="<?= ROOT_URL ?>admin/edit-usuario.php?id=<?= $user['id'] ?>" class="btn sm">Editar</a></td>
